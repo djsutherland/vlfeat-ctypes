@@ -8,5 +8,5 @@ setup(
     packages=['vlfeat'],
     url='https://github.com/dougalsutherland/vlfeat-ctypes',
     description='A minimal ctypes-based port of some vlfeat functions.',
-    long_description=open('README.txt').read(),
+    long_description=open('README.rst').read(),
 )

@@ -1,5 +1,10 @@
 *.pyc
 __pycache__
-build/
-dist/
+
+/build/
+/dist/
 /MANIFEST
+
+/vlfeat/libvl.so
+/vlfeat/libvl.dylib
+/vlfeat/vl.dll
