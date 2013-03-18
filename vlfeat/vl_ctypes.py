@@ -6,9 +6,21 @@ from ctypes.util import find_library
 
 import numpy as np
 
-_loc = find_library('vl')
-LIB = cdll[_loc if _loc is not None else 'libvl.so']
-# TODO - more options for finding the library
+import os
+from . import download
+_loc = os.path.join(os.path.dirname(os.path.abspath(download.__file__)),
+                    download.pick_platform()[1])
+try:
+    LIB = cdll[_loc]
+except OSError:
+    _loc = find_library('vl')
+    try:
+        LIB = cdll[_loc]
+    except (OSError, TypeError):  # TypeError if _loc is None
+        msg = ("Can't find vlfeat library. "
+               "Run python -m vlfeat.download to fetch.")
+        raise ImportError(msg)
+
 
 # TODO actually figure out if it's built LP64 or ILP64 or whatever
 vl_size = c_uint64
