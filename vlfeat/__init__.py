@@ -13,7 +13,7 @@ def vl_dsift(*args, **kwargs):
     f(*args, **kwargs)
 
 def vl_imsmooth(*args, **kwargs):
-    from .imsmooth import vl_dsift as f
+    from .imsmooth import vl_imsmooth as f
     f(*args, **kwargs)
 
 def vl_phow(*args, **kwargs):
