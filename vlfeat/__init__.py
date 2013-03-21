@@ -10,12 +10,12 @@
 
 def vl_dsift(*args, **kwargs):
     from .dsift import vl_dsift as f
-    f(*args, **kwargs)
+    return f(*args, **kwargs)
 
 def vl_imsmooth(*args, **kwargs):
     from .imsmooth import vl_imsmooth as f
-    f(*args, **kwargs)
+    return f(*args, **kwargs)
 
 def vl_phow(*args, **kwargs):
     from .phow import vl_phow as f
-    f(*args, **kwargs)
+    return f(*args, **kwargs)
