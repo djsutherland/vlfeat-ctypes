@@ -138,10 +138,10 @@ def vl_dsift(data, fast=False, norm=False, bounds=None, size=3, step=1,
                 y0, x0, y1, x1 = bounds  # transposed
             else:
                 x0, y0, x1, y1 = bounds
-            dsift.boundMinX = max(x0, 0)
-            dsift.boundMinY = max(y0, 0)
-            dsift.boundMaxX = min(x1, M - 1)
-            dsift.boundMaxY = min(y1, N - 1)
+            dsift.boundMinX = int(max(x0, 0))
+            dsift.boundMinY = int(max(y0, 0))
+            dsift.boundMaxX = int(min(x1, M - 1))
+            dsift.boundMaxY = int(min(y1, N - 1))
             _vl_dsift_update_buffers(dsift_p)
 
         dsift.useFlatWindow = fast
