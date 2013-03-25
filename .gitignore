@@ -3,6 +3,7 @@ __pycache__
 
 /build/
 /dist/
+/vlfeat_ctypes.egg-info/
 /MANIFEST
 
 /vlfeat/libvl.so
