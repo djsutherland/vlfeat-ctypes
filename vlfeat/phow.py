@@ -1,4 +1,5 @@
 from __future__ import division, print_function
+import warnings
 import numpy as np
 
 from .imsmooth import vl_imsmooth
@@ -39,7 +40,6 @@ def vl_phow(image, fast=True, sizes=DEFAULT_SIZES, step=DEFAULT_STEP,
 
     assert 2 <= image.ndim <= 3
     if image.ndim == 3 and image.shape[2] == 4:
-        import warnings
         warnings.warn("ignoring alpha channel")
         image = image[:, :, :3]
 
@@ -51,7 +51,6 @@ def vl_phow(image, fast=True, sizes=DEFAULT_SIZES, step=DEFAULT_STEP,
     else:
         channels = 3
         if image.ndim == 2 or image.shape[2] == 1:
-            import warnings
             warnings.warn("asked for color features from a grayscale image")
             image = np.dstack([image] * 3)
 
@@ -115,6 +114,10 @@ def vl_phow(image, fast=True, sizes=DEFAULT_SIZES, step=DEFAULT_STEP,
             for k in range(channels)
         ])
 
+        if d[0].size == 0:
+            warnings.warn("didn't get any features at size {}".format(size))
+            continue
+
         # zero out low-contrast descriptors
         # note that for HSV descriptors, the V component is thresholded
         if color in ('gray', 'opponent'):
@@ -133,4 +136,7 @@ def vl_phow(image, fast=True, sizes=DEFAULT_SIZES, step=DEFAULT_STEP,
         frames.append(np.hstack([f[0], size * np.ones((f[0].shape[0], 1))]))
         descrs.append(np.hstack(d))
 
+    if not len(frames):
+        warnings.warn("didn't get any features for image")
+        return np.zeros((0, 4)), np.zeros((0, 128 * channels))
     return np.vstack(frames), np.vstack(descrs)
