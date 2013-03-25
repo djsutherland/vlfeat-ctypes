@@ -20,4 +20,5 @@ setup(
     description='A minimal ctypes-based port of some vlfeat functions.',
     long_description=open('README.rst').read(),
     license='LICENSE.txt',
+    zip_safe=False,
 )
