@@ -1,6 +1,10 @@
 from __future__ import division
 import numpy as np
 
+def is_integer_type(x):
+    return issubclass(np.asanyarray(x).dtype.type, np.integer)
+def is_integer(x):
+    return np.isscalar(x) and is_integer_type(x)
 
 def as_float_image(image, dtype=None, order=None):
     if image.dtype.kind in ('u', 'i'):
