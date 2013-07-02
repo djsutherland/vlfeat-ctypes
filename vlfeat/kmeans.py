@@ -1,7 +1,7 @@
 from __future__ import print_function
 
 from collections import namedtuple
-from ctypes import (c_int, c_uint32, c_float, c_double, c_void_p,
+from ctypes import (c_int, c_float, c_double, c_void_p,
                     POINTER, CFUNCTYPE, cast)
 
 import numpy as np
@@ -197,4 +197,3 @@ def vl_kmeans(data, num_centers,
 
     finally:
         vl_kmeans_delete(kmeans_p)
-
