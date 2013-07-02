@@ -3,7 +3,7 @@ try:
 except ImportError:
     raise ImportError("py-sdm requires numpy to be installed")
     # Don't do this in the setup() requirements, because otherwise pip and
-    # friends get too eager about updating numpy/scipy.
+    # friends get too eager about updating numpy.
 
 try:
     from setuptools import setup
@@ -12,7 +12,7 @@ except ImportError:
 
 setup(
     name='vlfeat-ctypes',
-    version='0.1.1',
+    version='0.1.2',
     author='Dougal J. Sutherland',
     author_email='dougal@gmail.com',
     packages=['vlfeat'],
