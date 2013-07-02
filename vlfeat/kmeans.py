@@ -37,7 +37,7 @@ class KMeansAlgorithm(Enum):
 
 
 class KMeansInitialization(Enum):
-    RANDOM_SELECTION = 0
+    RANDOM = 0
     PLUS_PLUS = 1
 
 

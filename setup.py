@@ -12,7 +12,7 @@ except ImportError:
 
 setup(
     name='vlfeat-ctypes',
-    version='0.1.3',
+    version='0.1.4',
     author='Dougal J. Sutherland',
     author_email='dougal@gmail.com',
     packages=['vlfeat'],
