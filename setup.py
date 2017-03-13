@@ -1,18 +1,14 @@
 try:
-    import numpy
-except ImportError:
-    raise ImportError("py-sdm requires numpy to be installed")
-    # Don't do this in the setup() requirements, because otherwise pip and
-    # friends get too eager about updating numpy.
-
-try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
+import versioneer
+
 setup(
     name='vlfeat-ctypes',
-    version='0.1.4',
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     author='Dougal J. Sutherland',
     author_email='dougal@gmail.com',
     packages=['vlfeat'],
@@ -21,6 +17,7 @@ setup(
     long_description=open('README.rst').read(),
     license='BSD',
     zip_safe=False,
+    install_requires = ['numpy'],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Science/Research",

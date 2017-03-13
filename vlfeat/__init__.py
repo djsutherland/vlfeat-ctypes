@@ -1,3 +1,7 @@
+from ._version import get_versions
+__version__ = get_versions()['version']
+del get_versions
+
 # from dsift import vl_dsift
 # from imsmooth import vl_imsmooth
 # from phow import vl_phow
@@ -23,3 +27,4 @@ def vl_phow(*args, **kwargs):
 def vl_kmeans(*args, **kwargs):
     from .kmeans import vl_kmeans as f
     return f(*args, **kwargs)
+
