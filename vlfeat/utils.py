@@ -7,6 +7,7 @@ def is_integer(x):
     return np.isscalar(x) and is_integer_type(x)
 
 def as_float_image(image, dtype=None, order=None):
+    image = np.asanyarray(image)
     if image.dtype.kind in ('u', 'i'):
         bytes = image.dtype.itemsize
         if dtype is None:
